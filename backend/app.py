@@ -10,7 +10,12 @@ app = Flask(__name__)
 CORS(app)
 
 DATABASE = 'weather.db'
-API_KEY = '8224e673233e1711f3ea4d57af392f9e'  # Replace with your OpenWeatherMap API Key
+
+# Load API key from environment variable
+API_KEY = os.getenv('OPENWEATHER_API_KEY')
+
+if not API_KEY:
+    raise EnvironmentError("API key not found. Please set the 'OPENWEATHER_API_KEY' environment variable.")
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
