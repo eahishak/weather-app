@@ -1,30 +1,24 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import WeatherDisplay from './components/WeatherDisplay';
+import React from 'react';
+import ExportData from './components/ExportData';
+import VideoAndMap from './components/VideoAndMap';
 import WeatherForm from './components/WeatherForm';
+import WeatherHistory from './components/WeatherHistory';
 
 function App() {
-    const [location, setLocation] = useState('');
-    const [weather, setWeather] = useState(null);
-
-    const fetchWeather = async () => {
-        try {
-            const response = await axios.post('http://127.0.0.1:5000/api/weather', {
-                location,
-            });
-            setWeather(response.data);
-        } catch (error) {
-            alert('Error fetching weather data');
-        }
-    };
-
-    return (
-        <div style={{ padding: '20px' }}>
-            <h1>Weather App</h1>
-            <WeatherForm location={location} setLocation={setLocation} fetchWeather={fetchWeather} />
-            <WeatherDisplay weather={weather} />
-        </div>
-    );
+  return (
+    <div>
+      <header style={{ textAlign: 'center', padding: '1rem', backgroundColor: '#4CAF50', color: '#fff' }}>
+        <h1>Weather App</h1>
+        <p>Advanced Weather Tracking and Insights</p>
+      </header>
+      <main style={{ padding: '2rem' }}>
+        <WeatherForm />
+        <WeatherHistory />
+        <ExportData />
+        <VideoAndMap />
+      </main>
+    </div>
+  );
 }
 
 export default App;

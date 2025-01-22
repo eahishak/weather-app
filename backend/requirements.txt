@@ -1,4 +1,3 @@
-Flask
-Flask-CORS
+flask
+flask-cors
 requests
-sqlite3
