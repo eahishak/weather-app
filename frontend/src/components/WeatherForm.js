@@ -2,6 +2,9 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import WeatherDisplay from './WeatherDisplay';
 
+
+import { fetchWeather, fetchWeatherHistory } from './api/api';
+
 const WeatherForm = () => {
   const [location, setLocation] = useState('');
   const [weatherData, setWeatherData] = useState(null);
@@ -56,5 +59,6 @@ const WeatherForm = () => {
     </div>
   );
 };
+
 
 export default WeatherForm;
